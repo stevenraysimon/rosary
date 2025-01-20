@@ -76,7 +76,7 @@ class NavigationComponent extends HTMLElement {
               }
               
               .menu-text {
-                  font-size: 1.3em;
+                  font-size: 1.1em;
                   font-weight: 300;
                   text-transform: uppercase;
               }
@@ -86,7 +86,7 @@ class NavigationComponent extends HTMLElement {
                   text-transform: uppercase;
                   text-decoration: none;
                   color: white;
-                  font-size: 1.3em;
+                  font-size: 1.1em;
                   font-weight: 300;
               }
 
@@ -136,7 +136,7 @@ class NavigationComponent extends HTMLElement {
               }
               
               .slide-menu ul {
-                  font-size: 1.3em;
+                  font-size: 1.1em;
                   font-weight: 300;
                   padding: 6px 18px;
                   margin: 0;
