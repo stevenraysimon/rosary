@@ -21,6 +21,21 @@ class NavigationComponent extends HTMLElement {
       if (overlay) {
           overlay.addEventListener('click', () => this.toggleMenu());
       }
+
+      // Add this new code:
+      const toggleSections = this.querySelectorAll('.toggle-section');
+      
+      toggleSections.forEach(section => {
+          section.addEventListener('click', (e) => {
+              const submenu = section.nextElementSibling;
+              const arrow = section.querySelector('.arrow');
+              
+              submenu.classList.toggle('open');
+              arrow.classList.toggle('open');
+              
+              e.stopPropagation();
+          });
+      });
   }
 
   toggleMenu() {
@@ -168,6 +183,48 @@ class NavigationComponent extends HTMLElement {
                   background-color: var(--active-blue, #006699);
                   transition: 0s;
               }
+
+              .toggle-section {
+                  cursor: pointer;
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                  padding: 8px 18px;
+                  text-transform: uppercase;
+                  color: white;
+              }
+
+              .toggle-section:hover {
+                  background-color: var(--light-blue, #0088cc);
+                  transition: 0.3s;
+              }
+
+              .toggle-section:active {
+                  background-color: var(--active-blue, #006699);
+                  transition: 0s;
+              }
+
+              .arrow {
+                  transition: transform 0.3s ease;
+              }
+
+              .arrow.open {
+                  transform: rotate(180deg);
+              }
+
+              .submenu {
+                  max-height: 0;
+                  overflow: hidden;
+                  transition: max-height 0.3s ease;
+              }
+
+              .submenu.open {
+                  max-height: 500px;
+              }
+
+              .submenu a {
+                  padding-left: 36px;
+              }
           </style>
       `;
 
@@ -193,6 +250,68 @@ class NavigationComponent extends HTMLElement {
                   <li><a class="fancybox" href="/rosary/mysteries.html" title="Promises">Mysteries</a></li>
                   <li><a class="fancybox" href="#promises" title="Promises">Promises</a></li>
                   <li><a class="fancybox" href="#history" title="History">History</a></li>
+                  <li>
+                      <div class="toggle-section">
+                          Joyful Mysteries
+                          <svg class="arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                              <polyline points="6 9 12 15 18 9"></polyline>
+                          </svg>
+                      </div>
+                      <div class="submenu">
+                          <a href="/rosary/joyful/joyful-quote1.html">The Annunciation</a>
+                          <a href="/rosary/joyful/joyful-quote2.html">The Visitation</a>
+                          <a href="/rosary/joyful/joyful-quote3.html">The Nativity</a>
+                          <a href="/rosary/joyful/joyful-quote4.html">The Presentation</a>
+                          <a href="/rosary/joyful/joyful-quote5.html">The Finding Child Jesus</a>
+                      </div>
+                  </li>
+                  <li>
+                      <div class="toggle-section">
+                          Luminous Mysteries
+                          <svg class="arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                              <polyline points="6 9 12 15 18 9"></polyline>
+                          </svg>
+                      </div>
+                      <div class="submenu">
+                          <a href="/rosary/luminous/luminous-quote1.html">The Baptism</a>
+                          <a href="/rosary/luminous/luminous-quote2.html">The Wedding at Cana</a>
+                          <a href="/rosary/luminous/luminous-quote3.html">Proclaiming the Kingdom</a>
+                          <a href="/rosary/luminous/luminous-quote4.html">The Transfiguration</a>
+                          <a href="/rosary/luminous/luminous-quote5.html">The Institution of the Eucharist</a>
+                      </div>
+                  </li>
+                  <li>
+                      <div class="toggle-section">
+                          Sorrowful Mysteries
+                          <svg class="arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                              <polyline points="6 9 12 15 18 9"></polyline>
+                          </svg>
+                      </div>
+                      <div class="submenu">
+                          <a href="/rosary/sorrowful/sorrowful-quote1.html">The Agony in the Garden</a>
+                          <a href="/rosary/sorrowful/sorrowful-quote2.html">The Scouraging</a>
+                          <a href="/rosary/sorrowful/sorrowful-quote3.html">The Crowning with Thorns</a>
+                          <a href="/rosary/sorrowful/sorrowful-quote4.html">The Carrying of the Cross</a>
+                          <a href="/rosary/sorrowful/sorrowful-quote5.html">The Crucifixion</a>
+                      </div>
+                  </li>
+                  <li>
+                      <div class="toggle-section">
+                          Glorious Mysteries
+                          <svg class="arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                              <polyline points="6 9 12 15 18 9"></polyline>
+                          </svg>
+                      </div>
+                      <div class="submenu">
+                          <a href="/rosary/glorious/glorious-quote1.html">The Resurrection</a>
+                          <a href="/rosary/glorious/glorious-quote2.html">The Ascension</a>
+                          <a href="/rosary/glorious/glorious-quote3.html">The Descent of Holy Spirit</a>
+                          <a href="/rosary/glorious/glorious-quote4.html">The Assumption</a>
+                          <a href="/rosary/glorious/glorious-quote5.html">The Coronation</a>
+                      </div>
+                  </li>
+
+<!-- Repeat the same structure for Luminous, Sorrowful, and Glorious mysteries -->
               </ul>
           </div>
 
