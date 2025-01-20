@@ -190,7 +190,7 @@ class NavigationComponent extends HTMLElement {
           <div class="menu-overlay"></div>
           <div class="slide-menu">
               <ul>
-                  <li><a class="fancybox" href="/mysteries.html" title="Promises">Mysteries</a></li>
+                  <li><a class="fancybox" href="/rosary/mysteries.html" title="Promises">Mysteries</a></li>
                   <li><a class="fancybox" href="#promises" title="Promises">Promises</a></li>
                   <li><a class="fancybox" href="#history" title="History">History</a></li>
               </ul>
