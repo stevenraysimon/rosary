@@ -144,7 +144,7 @@ class NavigationComponent extends HTMLElement {
                   transition: left 0.3s ease;
                   z-index: 999;
                   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
-                  overflow-x: scroll;
+                  overflow-y: scroll;
               }
               
               .slide-menu.open {
