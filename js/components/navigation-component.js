@@ -36,6 +36,20 @@ class NavigationComponent extends HTMLElement {
               e.stopPropagation();
           });
       });
+
+        // ADD FLAME OF LOVE TOGGLE LISTENER
+        const flameCheckbox = this.querySelector('#flameToggle');
+        if (flameCheckbox) {
+            // Load saved state
+            const isEnabled = localStorage.getItem('flameOfLove') === 'true';
+            flameCheckbox.checked = isEnabled;
+            
+            // Save changes
+            flameCheckbox.addEventListener('change', (e) => {
+                localStorage.setItem('flameOfLove', e.target.checked);
+                window.dispatchEvent(new Event('flameOfLoveChanged'));
+            });
+        }
   }
 
   toggleMenu() {
@@ -226,6 +240,38 @@ class NavigationComponent extends HTMLElement {
               .submenu a {
                   padding-left: 36px;
               }
+
+              .flame-toggle-container {
+                padding: 8px 18px;
+            }
+
+            .flame-toggle-label {
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                gap: 0.75rem;
+                padding: 8px 18px;
+                margin: 0;
+                color: white;
+                text-transform: uppercase;
+            }
+
+            .flame-toggle-label:hover {
+                background-color: var(--light-blue, #0088cc);
+                transition: 0.3s;
+            }
+
+            .flame-checkbox {
+                width: 20px;
+                height: 20px;
+                cursor: pointer;
+                accent-color: var(--light-blue, #0088cc);
+            }
+
+            .flame-text {
+                font-size: 1.1em;
+                font-weight: 300;
+            }
           </style>
       `;
 
@@ -310,6 +356,13 @@ class NavigationComponent extends HTMLElement {
                           <a href="/rosary/glorious/glorious-quote4.html">The Assumption</a>
                           <a href="/rosary/glorious/glorious-quote5.html">The Coronation</a>
                       </div>
+                  </li>
+                  <!-- Flame of Love -->
+                  <li class="flame-toggle-container">
+                        <label class="flame-toggle-label">
+                            <input type="checkbox" id="flameToggle" class="flame-checkbox">
+                            <span class="flame-text">Flame of Love</span>
+                        </label>
                   </li>
 
 <!-- Repeat the same structure for Luminous, Sorrowful, and Glorious mysteries -->
