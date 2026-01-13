@@ -19,9 +19,9 @@ class HailMaryComponent extends HTMLElement {
                 <p class="behindPhotoParagraph">
                     Hail Mary, full of grace. The Lord is with you.<br>
                     Blessed are you among women and blessed is the fruit of your womb, Jesus.<br>
-                    <strong>Holy Mary, mother of God, pray for us sinners,<br>
-                    Spread the effect of grace of your Flame of Love over all of humanity<br>
-                    Now and at the hour of our death.</strong>
+                    <strong>Holy Mary, Mother of God, pray for us sinners,<br>
+                    spread the effect of grace of your Flame of Love over all of humanity<br>
+                    now and at the hour of our death. Amen.</strong>
                 </p>
             `;
         } else {
